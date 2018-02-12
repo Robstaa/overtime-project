@@ -1,4 +1,5 @@
-# Creating an app for keeping track of overtime for a whole team
+# Overtime tracking application
+Creating an app to keep track of overtime for a whole team including admin functions
 
 ## To create that app a few gems and frameworks are going to be used:
 - Devise (User authentification)
