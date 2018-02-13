@@ -1,32 +1,34 @@
 require 'rails_helper'
 
-describe 'navigate' do
-  describe 'index' do
-    it 'can be reached successfully' do
-      visit posts_path
-      expect(page.status_code).to eq(200)
+describe 'Posts' do
+  describe 'navigate' do
+    describe 'index' do
+      it 'can be reached successfully' do
+        visit posts_path
+        expect(page.status_code).to eq(200)
+      end
+
+      it 'has the title \'Posts\'' do
+        visit posts_path
+        expect(page).to have_content(/Posts/)
+      end
     end
 
-    it 'has the title \'Posts\'' do
-      visit posts_path
-      expect(page).to have_content(/Posts/)
-    end
-  end
+    describe 'creation' do
+      it 'has a new form that can be reached' do
+        visit new_post_path
+        expect(page.status_code).to eq(200)
+      end
 
-  describe 'creation' do
-    it 'has a new form that can be reached' do
-      visit new_post_path
-      expect(page.status_code).to eq(200)
-    end
+      it 'can be created from new form page' do
+        visit  new_post_path
+        fill_in 'post[date]', with: Date.today
+        fill_in 'post[rationale]', with: "This is a test rationale"
 
-    it 'can be created from new form page' do
-      visit  new_post_path
-      fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: "This is a test rationale"
+        click_on "Save"
 
-      click_on "Save"
-
-      expect(page).to have_content("This is a test rationale")
+        expect(page).to have_content("This is a test rationale")
+      end
     end
   end
 end
