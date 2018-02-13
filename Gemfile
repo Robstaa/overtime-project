@@ -31,6 +31,7 @@ group :development do
   gem 'better_errors'
   gem 'pry-byebug'
   gem 'binding_of_caller'
+  gem 'faker'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
