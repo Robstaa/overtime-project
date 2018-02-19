@@ -83,4 +83,21 @@ describe 'Posts' do
       expect(page).to have_content("This is an updated rationale")
     end
   end
+
+  describe 'delete' do
+    before do
+      @post = FactoryBot.create(:post, rationale: "This post is to test deletion")
+      visit posts_path
+    end
+
+    it "can be clicked on link 'delete' on the index page" do
+      click_link "delete_#{@post.id}"
+      # expect(page.status_code).to eq(200)
+    end
+
+    it 'can be deleted from the index page' do
+      click_link "delete_#{@post.id}"
+      expect(page).not_to have_content("This post is to test deletion")
+    end
+  end
 end
