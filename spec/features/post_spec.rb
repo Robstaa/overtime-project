@@ -55,4 +55,25 @@ describe 'Posts' do
       expect(User.last.posts.last.rationale).to eq("User Association")
     end
   end
+
+  describe 'edit' do
+    before do
+      @post = FactoryBot.create(:post)
+      visit posts_path
+      click_link("edit_#{@post.id}")
+    end
+
+    it 'has a page that can be reached through the index page' do
+      expect(page.status_code).to eq(200)
+    end
+
+    it 'can be edited' do
+      fill_in 'post[date]', with: Date.today
+      fill_in 'post[rationale]', with: "This is an updated rationale"
+
+      click_on "Update"
+
+      expect(page).to have_content("This is an updated rationale")
+    end
+  end
 end

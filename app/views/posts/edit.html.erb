@@ -1,0 +1,8 @@
+<h1>Edit page</h1>
+<%= form_for @post do |f| %>
+  <%= f.label(:date, "Date") %>
+  <%= f.date_field(:date) %>
+  <%= f.label(:rationale, "Rationale") %>
+  <%= f.text_area(:rationale, size: "60x12") %>
+  <%= f.submit("Update") %>
+<% end %>
