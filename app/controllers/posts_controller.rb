@@ -17,16 +17,13 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
-      #flash[:success] = "You created a new post"
       redirect_to @post, notice: "Your post was created successfully"
     else
-      render :new
-      #flash[:error] = "There was an error in creating your post, please try again"
+      render :new, notice: "There was an error in creating the post, please try again"
     end
   end
 
   def edit
-
   end
 
   def update
