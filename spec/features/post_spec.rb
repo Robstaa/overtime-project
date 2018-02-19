@@ -37,6 +37,13 @@ describe 'Posts' do
       expect(page.status_code).to eq(200)
     end
 
+    it 'can be reached from the navbar' do
+      visit root_path
+      click_link("create_post_from_nav")
+
+      expect(page.status_code).to eq(200)
+    end
+
     it 'can be created from new form page' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "This is a test rationale"
