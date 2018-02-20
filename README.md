@@ -11,5 +11,8 @@ App is created in TDD environment
 - Rspec (Testing)
 - Capybara (Integration testing)
 
+## TODO
+- Find a solution to fix the capybara click_button bug
 
+#
 Following the Professional Ruby on Rails tutorial on udemy by Jordan Hudgens
