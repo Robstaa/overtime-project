@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Posts' do
   before do
     @user = FactoryBot.create(:user)
-    login_as(@user, scope: :user)
+    login_as(@user, scope: :user, run_callbacks: false)
   end
 
   describe 'navigate' do
@@ -35,6 +35,7 @@ describe 'Posts' do
 
     it 'has a new form that can be reached' do
       expect(page.status_code).to eq(200)
+      expect(current_user).to eq(@user)
     end
 
     it 'can be reached from the navbar' do
