@@ -13,6 +13,6 @@ App is created in TDD environment
 
 ## TODO
 - Find a solution to fix the capybara click_button bug
-
+- Refactor hardcoded "AdminUser" with an instance method in a controller
 #
 Following the Professional Ruby on Rails tutorial on udemy by Jordan Hudgens

@@ -48,7 +48,7 @@ describe 'Posts' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "Testing"
 
-      page.should have_field('post[rationale]', with: 'Testing')
+      expect(page).to have_field('post[rationale]', with: 'Testing')
     end
 
     # it 'redirects to the post page' do
@@ -81,12 +81,14 @@ describe 'Posts' do
 
   describe 'edit' do
     before do
-      @post = FactoryBot.create(:post)
-      visit posts_path
-      click_link("edit_#{@post.id}")
+      @edit_user = User.create(first_name: "edit", last_name: "user", email: "edit@user.com", password: "123456")
+      login_as(@edit_user, scope: :user)
+      @edit_post = Post.create(date: Date.today, rationale: "just text", user: @edit_user)
     end
 
     it 'has a page that can be reached through the index page' do
+      visit posts_path
+      click_link "edit_#{@edit_post.id}"
       expect(page.status_code).to eq(200)
     end
 
@@ -98,6 +100,16 @@ describe 'Posts' do
 
     #   expect(page).to have_content("This is an updated rationale")
     # end
+
+    it 'cannot be edited by different user than the post owner' do
+      logout(:user)
+      non_authorized_user = FactoryBot.create(:non_authorized_user)
+      login_as(non_authorized_user, scope: :user)
+
+      visit edit_post_path(@edit_post)
+
+      expect(current_path).to eq(root_path)
+    end
   end
 
   describe 'delete' do
@@ -108,7 +120,6 @@ describe 'Posts' do
 
     it "can be clicked on link 'delete' on the index page" do
       click_link "delete_#{@post.id}"
-      # expect(page.status_code).to eq(200)
     end
 
     it 'can be deleted from the index page' do
