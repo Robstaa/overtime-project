@@ -8,8 +8,8 @@ describe 'Posts' do
 
   describe 'navigate' do
     before do
-        post1 = FactoryBot.create(:post)
-        post2 = FactoryBot.create(:second_post)
+        Post.create(date: Date.today, rationale: "Some rationale", user_id: @user.id)
+        Post.create(date: Date.today, rationale: "Another rationale", user_id: @user.id)
         visit posts_path
     end
 
@@ -18,12 +18,33 @@ describe 'Posts' do
         expect(page.status_code).to eq(200)
       end
 
-      it 'has the title \'Posts\'' do
+      it 'has the static title \'Posts\'' do
         expect(page).to have_content(/Posts/)
       end
 
       it 'has a list of posts' do
         expect(page).to have_content(/Some rationale|Another rationale/)
+      end
+
+      describe 'scope' do
+        before do
+          scope_post = Post.create(date: Date.today, rationale: "Are you owner?", user_id: @user.id)
+          visit posts_path
+        end
+
+        it 'has a scope so that post owners can see their own post' do
+          expect(page).to have_content("Are you owner?")
+        end
+
+        it 'has a scope so that no regular user can see other people\'s posts' do
+          other_user = FactoryBot.create(:non_authorized_user)
+          other_post = Post.create(date: Date.today, rationale: "Second post", user_id: other_user.id)
+          logout(:user)
+          login_as(other_user, scope: :user)
+          visit posts_path
+
+          expect(page).to have_no_content("Are you owner?")
+        end
       end
     end
   end
@@ -114,16 +135,16 @@ describe 'Posts' do
 
   describe 'delete' do
     before do
-      @post = FactoryBot.create(:post, rationale: "This post is to test deletion")
+      @post_to_delete = Post.create(date: Date.today, rationale: "This post is to test deletion", user: @user)
       visit posts_path
     end
 
     it "can be clicked on link 'delete' on the index page" do
-      click_link "delete_#{@post.id}"
+      click_link "delete_#{@post_to_delete.id}"
     end
 
     it 'can be deleted from the index page' do
-      click_link "delete_#{@post.id}"
+      click_link "delete_#{@post_to_delete.id}"
       expect(page).not_to have_content("This post is to test deletion")
     end
   end
