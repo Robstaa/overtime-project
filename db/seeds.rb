@@ -8,5 +8,5 @@ admin = AdminUser.create(email: "admin@test.com", password: "123456", first_name
 puts "Creating 100 Posts"
 
 100.times do
-  Post.create(date: Date.today, rationale: Faker::WorldOfWarcraft.hero, user_id: user1.id)
+  Post.create(date: Date.today, rationale: Faker::WorldOfWarcraft.hero, user_id: user1.id, overtime_request: 2.5)
 end

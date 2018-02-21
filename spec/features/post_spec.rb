@@ -8,8 +8,8 @@ describe 'Posts' do
 
   describe 'navigate' do
     before do
-        Post.create(date: Date.today, rationale: "Some rationale", user_id: @user.id)
-        Post.create(date: Date.today, rationale: "Another rationale", user_id: @user.id)
+        Post.create(date: Date.today, rationale: "Some rationale", user_id: @user.id, overtime_request: 2.5)
+        Post.create(date: Date.today, rationale: "Another rationale", user_id: @user.id, overtime_request: 2.5)
         visit posts_path
     end
 
@@ -28,7 +28,7 @@ describe 'Posts' do
 
       describe 'scope' do
         before do
-          scope_post = Post.create(date: Date.today, rationale: "Are you owner?", user_id: @user.id)
+          scope_post = Post.create(date: Date.today, rationale: "Are you owner?", user_id: @user.id, overtime_request: 2.5)
           visit posts_path
         end
 
@@ -38,7 +38,7 @@ describe 'Posts' do
 
         it 'has a scope so that no regular user can see other people\'s posts' do
           other_user = FactoryBot.create(:non_authorized_user)
-          other_post = Post.create(date: Date.today, rationale: "Second post", user_id: other_user.id)
+          other_post = Post.create(date: Date.today, rationale: "Second post", user_id: other_user.id, overtime_request: 4)
           logout(:user)
           login_as(other_user, scope: :user)
           visit posts_path
@@ -104,7 +104,7 @@ describe 'Posts' do
     before do
       @edit_user = User.create(first_name: "edit", last_name: "user", email: "edit@user.com", password: "123456")
       login_as(@edit_user, scope: :user)
-      @edit_post = Post.create(date: Date.today, rationale: "just text", user: @edit_user)
+      @edit_post = Post.create(date: Date.today, rationale: "just text", user: @edit_user, overtime_request: 3)
     end
 
     it 'has a page that can be reached through the index page' do
@@ -140,13 +140,11 @@ describe 'Posts' do
       expect(current_path).to eq(posts_path)
     end
 
-    it 'cannot be edited after approval through link' do
+    it 'has no edit link when approved' do
       @edit_post.update(status: 'approved')
 
       visit posts_path
-      click_link "edit_#{@edit_post.id}"
-
-      expect(current_path).to eq(posts_path)
+      expect(page).to have_no_link("edit_#{@edit_post.id}")
     end
 
     it 'cannot be edited after rejection' do
@@ -157,19 +155,17 @@ describe 'Posts' do
       expect(current_path).to eq(posts_path)
     end
 
-    it 'cannot be edited after rejection through link' do
+    it 'has no edit link when rejected' do
       @edit_post.update(status: 'rejected')
 
       visit posts_path
-      click_link "edit_#{@edit_post.id}"
-
-      expect(current_path).to eq(posts_path)
+      expect(page).to have_no_link("edit_#{@edit_post.id}")
     end
   end
 
   describe 'delete' do
     before do
-      @post_to_delete = Post.create(date: Date.today, rationale: "This post is to test deletion", user: @user)
+      @post_to_delete = Post.create(date: Date.today, rationale: "This post is to test deletion", user: @user, overtime_request: 2.5)
       visit posts_path
     end
 
