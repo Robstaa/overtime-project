@@ -1,4 +1,24 @@
-<h1>Show page!</h1>
-<h3><%= @post.date %></h3>
-<h4><%= @post.rationale %></h4>
+<div>
+  <h2><%= @post.rationale %></h2>
+</div>
+
+<div class="well">
+  <div>
+    <h3>Request from: <%=@post.user.full_name %></h3>
+  </div>
+  <div>
+    <h3>Overtime amount requested: <%= @post.overtime_request %> hours</h3>
+  </div>
+  <div>
+    <h3>Date: <%= @post.date %></h3>
+  </div>
+  <div>
+    <h3>Current status: <%= status_label @post.status %></h3>
+  </div>
+  <div>
+    <h3><%= link_to "Edit", edit_post_path(@post), class: "btn btn-warning" if policy(@post).update? %></h3>
+  </div>
+</div>
+
+
 <h5><%= link_to("Back to see all posts", posts_path) %></h5>

@@ -14,5 +14,6 @@ App is created in TDD environment
 ## TODO
 - Find a solution to fix the capybara click_button bug
 - Refactor hardcoded "AdminUser" with an instance method in a controller
+- Make the whole row clickable on the index page to get to the show page (needs JS)
 #
 Following the Professional Ruby on Rails tutorial on udemy by Jordan Hudgens

@@ -9,10 +9,10 @@
     <%= "#{post.overtime_request} hours" %>
   </td>
   <td>
-    <%= truncate(post.rationale) %>
+    <%= link_to truncate(post.rationale), post_path(post) %>
   </td>
   <td>
-    <%= post.user.full_name %>
+    <%=post.user.full_name %>
   </td>
   <td>
     <%= status_label(post.status) %>
