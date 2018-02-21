@@ -12,8 +12,13 @@
     <%= post.user.full_name %>
   </td>
   <td>
+    <strong><%= post.status.capitalize %></strong>
+  </td>
+  <td>
     <!-- ID is created for the post.spec -->
-    <%= link_to "Edit", edit_post_path(post), id: "edit_#{post.id}" %>
+    <% if post.status != "submitted" %>
+      <%= link_to "Edit", edit_post_path(post), id: "edit_#{post.id}" %>
+    <% end %>
   </td>
   <td>
     <!-- ID is created for the post.spec -->

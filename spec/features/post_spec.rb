@@ -131,6 +131,40 @@ describe 'Posts' do
 
       expect(current_path).to eq(posts_path)
     end
+
+    it 'cannot be edited after approval' do
+      @edit_post.update(status: 'approved')
+
+      visit edit_post_path(@edit_post)
+
+      expect(current_path).to eq(posts_path)
+    end
+
+    it 'cannot be edited after approval through link' do
+      @edit_post.update(status: 'approved')
+
+      visit posts_path
+      click_link "edit_#{@edit_post.id}"
+
+      expect(current_path).to eq(posts_path)
+    end
+
+    it 'cannot be edited after rejection' do
+      @edit_post.update(status: 'rejected')
+
+      visit edit_post_path(@edit_post)
+
+      expect(current_path).to eq(posts_path)
+    end
+
+    it 'cannot be edited after rejection through link' do
+      @edit_post.update(status: 'rejected')
+
+      visit posts_path
+      click_link "edit_#{@edit_post.id}"
+
+      expect(current_path).to eq(posts_path)
+    end
   end
 
   describe 'delete' do
