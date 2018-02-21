@@ -51,6 +51,7 @@ describe 'Posts' do
 
   describe 'creation' do
     before do
+      login_as(@user, scope: :user, run_callbacks: false)
       visit new_post_path
     end
 
@@ -91,12 +92,14 @@ describe 'Posts' do
     # end
 
     # it 'will have a user associated with it' do
+    #   user =  User.create(first_name: "write", last_name: "user", email: "edit@user.com", password: "123456")
+    #   login_as(user, scope: :user, run_callbacks: false)
+    #   visit new_post_path
     #   fill_in 'post[date]', with: Date.today
     #   fill_in 'post[rationale]', with: "User Association"
+    #   fill_in 'post[overtime_request]', with: 4.5
 
-    #   click_button "Save"
-
-    #   expect(User.last.posts.last.rationale).to eq("User Association")
+    #   expect {click_on "commit"}.to change(Post, :count).by(1)
     # end
   end
 
@@ -114,10 +117,12 @@ describe 'Posts' do
     end
 
     # it 'can be edited' do
-    #   fill_in 'post[date]', with: Date.today
+    #   visit edit_post_path(@edit_post)
+    #   # fill_in 'post[date]', with: Date.today
     #   fill_in 'post[rationale]', with: "This is an updated rationale"
+    #   # fill_in 'post[overtime_request]', with: 4.5
 
-    #   click_on "Update"
+    #   click_on "submit"
 
     #   expect(page).to have_content("This is an updated rationale")
     # end
