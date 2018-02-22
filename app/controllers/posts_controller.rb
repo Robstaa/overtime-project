@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action(:set_post, only: [:show, :edit, :update, :destroy])
 
   def index
-    @posts = Post.where(user_id: current_user.id).all
+    @posts = Post.where(user_id: current_user.id).order(:date).page(params[:page]).per(15)
   end
 
   def show
