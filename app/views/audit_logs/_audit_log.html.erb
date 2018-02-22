@@ -1,0 +1,26 @@
+<tr>
+  <td>
+    <%= audit_log.id %>
+  </td>
+  <td>
+    <%= audit_log.user.full_name %>
+  </td>
+  <td>
+    <%= audit_log.start_date %>
+  </td>
+  <td>
+    <%= audit_log.end_date %>
+  </td>
+  <!-- <td>
+    <% if policy(audit_log).update? %>
+      <%= link_to edit_audit_log_path(audit_log), html_options = {id: "edit_#{audit_log.id}"} do %>
+        <%= fa_icon "edit", class: "index-icon" %>
+      <% end %>
+    <% end %>
+  </td>
+  <td>
+      <%= link_to(audit_log_path(audit_log), method: :delete) do  %>
+        <%= fa_icon "trash", class: "index-icon", id: "delete_#{audit_log.id}" %>
+      <% end %>
+  </td> -->
+</tr>

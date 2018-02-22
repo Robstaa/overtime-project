@@ -1,5 +1,27 @@
-<% @audit_logs.each do |log| %>
-  <%= log.status %>
-  <%= log.start_date %>
-  <%= log.user.full_name %>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        Employee
+      </th>
+      <th>
+        Week Starting
+      </th>
+      <th>
+        Confirmed at
+      </th>
+      <th>
+
+      </th>
+      <th>
+
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @audit_logs %>
+  </tbody>
+</table>
