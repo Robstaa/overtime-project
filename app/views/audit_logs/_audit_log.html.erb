@@ -11,6 +11,9 @@
   <td>
     <%= audit_log.end_date %>
   </td>
+  <td>
+    <%= status_label(audit_log.status) %>
+  </td>
   <!-- <td>
     <% if policy(audit_log).update? %>
       <%= link_to edit_audit_log_path(audit_log), html_options = {id: "edit_#{audit_log.id}"} do %>

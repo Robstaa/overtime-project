@@ -1,4 +1,5 @@
 class AuditLog < ApplicationRecord
+  enum status: [:pending, :confirmed]
   belongs_to :user
   validates :user_id, presence: true
   validates :status, presence: true
