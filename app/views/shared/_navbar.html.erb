@@ -13,6 +13,13 @@
     <li class=<%= active?(new_post_path)%>>
       <%= link_to "Create new entry", new_post_path, id: "create_post_from_nav" %>
     </li>
+
+    <% if policy(:audit_log).index? %>
+      <li class=<%= active?(audit_logs_path) %>>
+        <%= link_to "Audit Logs", audit_logs_path %>
+      </li>
+    <% end %>
+
     <li class="dropdown pull-right">
        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Account<strong class="caret"></strong></a>
       <ul class="dropdown-menu">
