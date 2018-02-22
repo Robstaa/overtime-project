@@ -174,13 +174,19 @@ describe 'Posts' do
       visit posts_path
     end
 
-    it "can be clicked on link 'delete' on the index page" do
-      click_link "delete_#{@post_to_delete.id}"
-    end
-
-    it 'can be deleted from the index page' do
-      click_link "delete_#{@post_to_delete.id}"
+    it 'can be deleted' do
+      page.driver.submit(:delete, post_path(@post_to_delete),{})
+      visit posts_path
       expect(page).not_to have_content("This post is to test deletion")
     end
+
+    # it "can be clicked on link 'delete' on the index page" do
+    #   click_link "delete_#{@post_to_delete.id}"
+    # end
+
+    # it 'can be deleted from the index page' do
+    #   click_link "delete_#{@post_to_delete.id}"
+    #   expect(page).not_to have_content("This post is to test deletion")
+    # end
   end
 end
