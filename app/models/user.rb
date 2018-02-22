@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   has_many :posts
+  has_many :audit_logs
 
   def full_name
     "#{last_name}, #{first_name}"
