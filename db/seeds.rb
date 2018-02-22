@@ -14,6 +14,6 @@ end
 puts "Creates 10 Audit Logs"
 
 10.times do
-  FactoryBot.create(:audit_log)
+  FactoryBot.create(:audit_log, user_id: user1.id)
 end
 
