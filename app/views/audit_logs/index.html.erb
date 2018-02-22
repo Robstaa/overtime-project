@@ -1,0 +1,5 @@
+<% @audit_logs.each do |log| %>
+  <%= log.status %>
+  <%= log.start_date %>
+  <%= log.user.full_name %>
+<% end %>

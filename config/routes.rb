@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :audit_logs
+  resources :audit_logs, only: [:index, :show, :create, :update]
+
   namespace :admin do
     resources :posts
     resources :users
