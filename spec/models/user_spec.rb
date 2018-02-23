@@ -15,6 +15,11 @@ RSpec.describe User, type: :model do
       @user.last_name = nil
       expect(@user).not_to be_valid
     end
+
+    it 'cannot be created without a phone_number' do
+      @user.phone_number = nil
+      expect(@user).not_to be_valid
+    end
   end
 
   describe "custom name method" do
