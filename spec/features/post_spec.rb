@@ -105,7 +105,7 @@ describe 'Posts' do
 
   describe 'edit' do
     before do
-      @edit_user = User.create(first_name: "edit", last_name: "user", email: "edit@user.com", password: "123456", phone_number: "1234567")
+      @edit_user = User.create(first_name: "edit", last_name: "user", email: "edit@user.com", password: "123456", phone_number: "0123456789")
       login_as(@edit_user, scope: :user)
       @edit_post = Post.create(date: Date.today, rationale: "just text", user: @edit_user, overtime_request: 3)
     end

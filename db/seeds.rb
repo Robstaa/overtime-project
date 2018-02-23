@@ -6,13 +6,13 @@ user1 = User.create(email: "test@test.com",
                     password: "123456",
                     first_name: "Robstaa",
                     last_name: "Sushi",
-                    phone_number: "+4917661387174")
+                    phone_number: "004917661387174")
 
 admin = AdminUser.create(email: "admin@test.com",
                         password: "123456",
                         first_name: "Admin",
                         last_name: "User",
-                        phone_number: "+4917661387174")
+                        phone_number: "004917661387174")
 
 puts "Creating 100 User Posts"
 
