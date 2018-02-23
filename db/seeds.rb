@@ -13,13 +13,13 @@ end
 
 puts "Creating 10 Admin Posts"
 
-10.times do
+50.times do
   Post.create(date: Date.today, rationale: Faker::WorldOfWarcraft.hero, user_id: admin.id, overtime_request: 2.5)
 end
 
 puts "Creates 10 Audit Logs"
 
-10.times do
+50.times do
   FactoryBot.create(:audit_log, user_id: user1.id)
 end
 
