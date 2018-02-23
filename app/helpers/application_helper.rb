@@ -3,6 +3,10 @@ module ApplicationHelper
     return "active" if current_page?(path)
   end
 
+  def admin_types
+    ["AdminUser"]
+  end
+
   def status_label(status)
     case status
     when 'submitted'
