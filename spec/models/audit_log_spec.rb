@@ -31,11 +31,6 @@ RSpec.describe AuditLog, type: :model do
       expect(@audit_log).to be_valid
     end
 
-    it 'should have a start date not different to six days prior' do
-      @audit_log.update(start_date: Date.today - 7.days)
-      expect(@audit_log).not_to be_valid
-    end
-
     it 'should set start date to six days prior if no start_date is given' do
       new_audit_log = AuditLog.create(status: 0, user_id: User.last.id)
       expect(new_audit_log).to be_valid

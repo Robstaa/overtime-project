@@ -1,2 +1,10 @@
-<h1>I am an employee</h1>
+  <div class='container-fluid'>
+   <div class='row'>
+     <div class='col-md-5 column jumbotron employee-blocks'>
+     </div>
 
+     <div class='col-md-5 column jumbotron employee-blocks'>
+      <%= render partial: 'pending_audit_confirmation', locals: {pending_audit_confirmations: @pending_audit_confirmations} %>
+     </div>
+   </div>
+  </div>

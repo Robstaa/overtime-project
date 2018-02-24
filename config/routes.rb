@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :audit_logs do
+    member do
+      get :confirm
+    end
+  end
+
   devise_for :users, skip: [:registrations]
   resources :posts
   root to: 'static#homepage'

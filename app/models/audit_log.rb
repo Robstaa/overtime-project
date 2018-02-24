@@ -4,7 +4,7 @@ class AuditLog < ApplicationRecord
   validates :user_id, presence: true
   validates :status, presence: true
   validates :start_date, presence: true
-  validate  :start_date_must_be_six_days_in_the_past
+  # validate  :start_date_must_be_six_days_in_the_past
   after_initialize :set_defaults
 
   private

@@ -2,13 +2,13 @@ require 'faker'
 
 puts "Creates one Admin and one regular User"
 
-user1 = User.create(email: "test@test.com",
+user1 = User.create!(email: "test@test.com",
                     password: "123456",
-                    first_name: Faker::Name.first_name,
-                    last_name: Faker::Name.last_name,
+                    first_name: "wuba",
+                    last_name: "duba",
                     phone_number: "004917661387174")
 
-admin = AdminUser.create(email: "admin@test.com",
+admin = AdminUser.create!(email: "admin@test.com",
                         password: "123456",
                         first_name: "Admin",
                         last_name: "User",
@@ -28,7 +28,9 @@ end
 
 puts "Creates 10 Audit Logs"
 
-10.times do
-  FactoryBot.create(:audit_log, user_id: user1.id)
-end
+# FactoryBot.create(:audit_log, user_id: user1.id)
+AuditLog.create!(start_date: Date.today - 6.days, status: "pending", user_id: user1.id)
+AuditLog.create!(start_date: Date.today - 13.days, status: "pending", user_id: user1.id)
+AuditLog.create!(start_date: Date.today - 20.days, status: "pending", user_id: user1.id)
+
 
