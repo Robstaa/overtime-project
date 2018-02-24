@@ -16,4 +16,12 @@ class User < ApplicationRecord
   def full_name
     "#{last_name}, #{first_name}"
   end
+
+  def admin_types
+    ["AdminUser"]
+  end
+
+  def is_admin?
+    admin_types.include?(self.type)
+  end
 end

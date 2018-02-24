@@ -16,5 +16,7 @@ App is created in TDD environment
 - Refactor hardcoded "AdminUser" with an instance method in a controller
 - Make the whole row clickable on the index page to get to the show page (needs JS)
 - Fix pagination on admin dashboard
+- Edit has to have status options for admins
+- Fix login bug (message "approved" comes, but still in sign in window)
 #
-Following the Professional Ruby on Rails tutorial on udemy by Jordan Hudgens
+Following the best practice of application building by Jordan Hudgens
