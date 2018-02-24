@@ -1,4 +1,4 @@
-<% @pending_approvals.each do |pa| %>
+<% pending_approvals.each do |pa| %>
   <div class="homepage-block col-md-3">
     <h4>
       <%= pa.user.full_name %>
@@ -13,8 +13,6 @@
     <p>
       <span class="pending-details">Rationale:</span> <%= truncate(pa.rationale, length: 42) %>
     </p>
-    <p><%= pa.status %></p>
-
     <div class="row">
       <div class="col-md-6 column">
         <%= link_to "Approve", approve_post_path(pa), class: "btn btn-success btn-block", id: "approve_#{pa.id}" %>

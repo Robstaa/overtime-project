@@ -1,0 +1,17 @@
+<% recent_audit_items.each do |rai| %>
+  <div class="homepage-block col-md-3">
+    <h4>
+      <%= rai.user.full_name %>
+    </h4>
+    <hr>
+    <p>
+      <span class="pending-details">Week Starting:</span> <%= rai.start_date %>
+    </p>
+    <p>
+      <span class="pending-details">Confirmed at:</span> <%= rai.end_date || status_label(rai.status) %>
+    </p>
+    <p>
+      <span class="pending-details">Status:</span> <%= status_label(rai.status) %>
+    </p>
+  </div>
+<% end %>
