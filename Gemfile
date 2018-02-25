@@ -33,11 +33,9 @@ group :development do
   gem 'better_errors'
   gem 'pry-byebug'
   gem 'binding_of_caller'
-  gem 'faker'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-#Authentification gem
 gem 'devise', '~> 4.4', '>= 4.4.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'gritter', '~> 1.2'
@@ -46,3 +44,4 @@ gem 'pundit', '~> 1.1'
 gem 'twilio-ruby', '~> 5.6', '>= 5.6.3'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.3'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'faker'
