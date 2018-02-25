@@ -1,0 +1,2 @@
+class EmployeeDashboard < UserDashboard
+end
