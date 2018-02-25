@@ -16,7 +16,7 @@ describe 'Homepage' do
   end
 
   it 'allows the user to change the audit log status from the homepage' do
-    log_user = User.create(first_name: "log", last_name: "user", email: "edit@user.com", password: "123456", phone_number: "0123456789")
+    log_user = Employee.create(first_name: "log", last_name: "user", email: "edit@user.com", password: "123456", phone_number: "0123456789")
     audit_log = AuditLog.create!(start_date: Date.today - 6.days, status: "pending", user_id: log_user.id)
     login_as(log_user, scope: :user)
     visit root_path

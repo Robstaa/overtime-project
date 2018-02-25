@@ -18,5 +18,6 @@ App is created in TDD environment
 - Fix pagination on admin dashboard
 - Edit has to have status options for admins
 - Fix login bug (message "approved" comes, but still in sign in window)
+- Improve seed file
 #
 Following the best practice of application building by Jordan Hudgens

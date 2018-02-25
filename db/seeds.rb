@@ -2,7 +2,7 @@ require 'faker'
 
 puts "Creates one Admin and one regular User"
 
-user1 = User.create!(email: "test@test.com",
+user1 = Employee.create!(email: "test@test.com",
                     password: "123456",
                     first_name: "wuba",
                     last_name: "duba",
