@@ -19,5 +19,6 @@ namespace :notification do
         ManagerMailer.email(admin).deliver_later
       end
     end
+    puts "Email sent"
   end
 end

@@ -2,13 +2,13 @@ require 'faker'
 
 puts "Creates one Admin and one regular User"
 
-user1 = Employee.create!(email: "test@test.com",
+user1 = Employee.create!(email: "user@enterprise-overtime-app.herokuapp.com",
                     password: "123456",
-                    first_name: "wuba",
-                    last_name: "duba",
-                    phone_number: "004917661387174")
+                    first_name: "Robin",
+                    last_name: "Zuschke",
+                    phone_number: "004912345678")
 
-admin = AdminUser.create!(email: "robinzuschke@hotmail.de",
+admin = AdminUser.create!(email: "admin@enterprise-overtime-app.herokuapp.com",
                         password: "123456",
                         first_name: "Admin",
                         last_name: "User",
@@ -23,13 +23,13 @@ AuditLog.create!(start_date: Date.today - 20.days, status: "pending", user_id: u
 puts "Creating 10 User Posts"
 
 10.times do
-  Post.create(date: Date.today, rationale: Faker::WorldOfWarcraft.hero, user_id: user1.id, overtime_request: 2.5)
+  Post.create(date: Date.today, rationale: Faker::Food.description, user_id: user1.id, overtime_request: 2.5)
 end
 
 puts "Creating 5 Admin Posts"
 
 5.times do
-  Post.create(date: Date.today, rationale: Faker::WorldOfWarcraft.hero, user_id: admin.id, overtime_request: 2.5)
+  Post.create(date: Date.today, rationale: Faker::Food.description, user_id: admin.id, overtime_request: 2.5)
 end
 
 

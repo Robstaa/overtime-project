@@ -11,5 +11,3 @@ module SmsTool
       body: "#{message}")
   end
 end
-
-# SmsTool.send_sms("+4917661387174", "ONE MORE TRY ;)")
