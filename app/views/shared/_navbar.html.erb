@@ -25,14 +25,11 @@
       <ul class="dropdown-menu">
 
         <!-- TODO: Refactor -->
-        <% if current_user.try(:type) == "AdminUser" %>
+        <% if current_user.is_admin? %>
           <li>
             <%= link_to "Admin Dashboard", admin_root_path %>
           </li>
         <% end %>
-        <li>
-          <%= link_to "Change password", edit_user_password_path %>
-        </li>
         <li class="divider">
         </li>
         <li>

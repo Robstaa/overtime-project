@@ -23,13 +23,13 @@ AuditLog.create!(start_date: Date.today - 20.days, status: "pending", user_id: u
 puts "Creating 10 User Posts"
 
 10.times do
-  Post.create(date: Date.today, rationale: Faker::Food.description, user_id: user1.id, overtime_request: 2.5)
+  Post.create(date: Date.today, rationale: Faker::Matz.quote, user_id: user1.id, overtime_request: rand(8))
 end
 
 puts "Creating 5 Admin Posts"
 
 5.times do
-  Post.create(date: Date.today, rationale: Faker::Food.description, user_id: admin.id, overtime_request: 2.5)
+  Post.create(date: Date.today, rationale: Faker::Matz.quote, user_id: admin.id, overtime_request: rand(8))
 end
 
 
