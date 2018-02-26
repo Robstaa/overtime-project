@@ -35,7 +35,7 @@ App is created with tests
 - x Edit has to have status options for admins
 - x Fix login bug (message "approved" comes, but still in sign in window)
 - Improve seed file
-- Mobile responsiveness
+- Mobile responsiveness for navbar
 - Delete hr tag in account window in navbar for employee
 #
 Following the best practice of application building by Jordan Hudgens

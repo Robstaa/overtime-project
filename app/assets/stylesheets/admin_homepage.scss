@@ -21,3 +21,11 @@
 .pending-details {
   font-weight: 900;
 }
+
+
+@media (max-width: 991px) {
+  .mobile-button-margin {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
