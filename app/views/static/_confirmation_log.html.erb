@@ -8,7 +8,7 @@
       <span class="pending-details">Week Starting:</span> <%= rai.start_date.strftime("%e.%m.%Y") %>
     </p>
     <p>
-      <span class="pending-details">Confirmed at:</span> <%= rai.end_date.strftime("%e.%m.%Y") || status_label(rai.status) %>
+      <span class="pending-details">Confirmed at:</span> <%= (rai.end_date.strftime("%e.%m.%Y") if rai.end_date) || status_label(rai.status) %>
     </p>
     <p>
       <span class="pending-details">Status:</span> <%= status_label(rai.status) %>

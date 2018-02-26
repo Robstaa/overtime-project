@@ -9,7 +9,7 @@
     <%= audit_log.start_date.strftime("%e.%m.%Y") %>
   </td>
   <td>
-    <%= audit_log.end_date.strftime("%e.%m.%Y") %>
+    <%= audit_log.end_date.strftime("%e.%m.%Y") if audit_log.end_date %>
   </td>
   <td>
     <%= status_label(audit_log.status) %>

@@ -10,9 +10,11 @@
     <li class=<%= active?(posts_path)%>>
       <%= link_to "Time Entries", posts_path %>
     </li>
-    <li class=<%= active?(new_post_path)%>>
-      <%= link_to "Request Overtime Approval", new_post_path, id: "create_post_from_nav" %>
-    </li>
+    <% if !current_user.is_admin? %>
+      <li class=<%= active?(new_post_path)%>>
+        <%= link_to "Request Overtime Approval", new_post_path, id: "create_post_from_nav" %>
+      </li>
+    <% end %>
 
     <% if policy(:audit_log).index? %>
       <li class=<%= active?(audit_logs_path) %>>

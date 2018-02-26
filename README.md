@@ -37,5 +37,6 @@ App is created with tests
 - Improve seed file
 - Mobile responsiveness for navbar
 - Delete hr tag in account window in navbar for employee
+- Text on devise login to give credentials and talk about the app
 #
 Following the best practice of application building by Jordan Hudgens
