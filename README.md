@@ -29,11 +29,11 @@ App is created with tests
 
 ## TODO
 - Find a solution to fix the capybara click_button bug
--x Refactor hardcoded "AdminUser" with an instance method in a controller
+- x Refactor hardcoded "AdminUser" with an instance method in a controller
 - Make the whole row clickable on the index page to get to the show page (needs JS)
--x Fix pagination on admin dashboard
-- Edit has to have status options for admins
--x Fix login bug (message "approved" comes, but still in sign in window)
+- x Fix pagination on admin dashboard
+- x Edit has to have status options for admins
+- x Fix login bug (message "approved" comes, but still in sign in window)
 - Improve seed file
 - Mobile responsiveness
 - Delete hr tag in account window in navbar for employee

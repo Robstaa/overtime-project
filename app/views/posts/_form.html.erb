@@ -19,6 +19,18 @@
       <%= f.label(:rationale, "Rationale") %>
       <%= f.text_area(:rationale, size: "60x12", class: "form-control") %>
     </div>
+    <% if current_user.is_admin? %>
+      <div class="form-group">
+        <%= f.radio_button(:status, "submitted") %>
+        <%= f.label(:status, "Submitted") %>
+
+        <%= f.radio_button(:status, "approved") %>
+        <%= f.label(:status, "Approved") %>
+
+        <%= f.radio_button(:status, "rejected") %>
+        <%= f.label(:status, "Rejected") %>
+      </div>
+    <% end %>
       <%= f.submit(class: "btn btn-primary btn-block save-post-button", id: "save-post-button") %>
   </form>
 <% end %>
