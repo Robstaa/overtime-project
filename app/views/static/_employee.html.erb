@@ -1,14 +1,20 @@
   <div class='container-fluid'>
    <div class='row'>
-     <div class='col-md-5 column jumbotron employee-blocks'>
+     <div class='col-md-5 column employee-blocks'>
+      <h3 class="text-center">New request</h3>
+      <div class="jumbotron">
         <%= link_to "Request new Overtime Approval",
-            new_post_path,
-            class: "btn btn-primary btn-block btn-lg",
-            style: "margin-bottom:4px;white-space: normal;" %>
-     </div>
+        new_post_path,
+        class: "btn btn-primary btn-block btn-lg",
+          style: "margin-bottom:4px;white-space: normal;" %>
+        </div>
+      </div>
 
-     <div class='col-md-5 column jumbotron employee-blocks'>
-      <%= render partial: 'pending_audit_confirmation', locals: {pending_audit_confirmations: @pending_audit_confirmations} %>
-     </div>
-   </div>
+      <div class='col-md-5 column employee-blocks'>
+        <h3 class="text-center">Confirmation To-Do</h3>
+        <div class="jumbotron">
+          <%= render partial: 'pending_audit_confirmation', locals: {pending_audit_confirmations: @pending_audit_confirmations} %>
+        </div>
+      </div>
+    </div>
   </div>
