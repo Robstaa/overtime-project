@@ -36,5 +36,6 @@ App is created with tests
 -x Fix login bug (message "approved" comes, but still in sign in window)
 - Improve seed file
 - Mobile responsiveness
+- Delete hr tag in account window in navbar for employee
 #
 Following the best practice of application building by Jordan Hudgens
