@@ -10,7 +10,7 @@
     <h3>Overtime amount requested: <%= @post.overtime_request %> hours</h3>
   </div>
   <div>
-    <h3>Date: <%= @post.date %></h3>
+    <h3>Date: <%= @post.date.strftime("%e.%m.%Y") %></h3>
   </div>
   <div>
     <h3>Current status: <%= status_label @post.status %></h3>

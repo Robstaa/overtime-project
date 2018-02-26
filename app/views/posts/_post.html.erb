@@ -3,7 +3,7 @@
     <%= post.id %>
   </td>
   <td>
-    <%= post.date %>
+    <%= post.date.strftime("%e.%m.%Y") %>
   </td>
   <td>
     <%= "#{post.overtime_request} hours" %>
